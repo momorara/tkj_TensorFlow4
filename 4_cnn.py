@@ -135,7 +135,7 @@ model.summary()
 # 4. 学習
 # -----------------------------------------
 
-epochs = 10 
+epochs = 2 
 
 history = model.fit(
     train_generator,
