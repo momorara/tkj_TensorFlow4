@@ -7,7 +7,7 @@ import json
 import matplotlib.pyplot as plt
 
 # JSONファイルを読み込む
-with open('training_history_7class.json', 'r') as f:
+with open('training_history_4class.json', 'r') as f:
     history = json.load(f)
 
 # 学習履歴のキーを確認

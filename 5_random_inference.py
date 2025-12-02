@@ -15,11 +15,11 @@ from tensorflow.keras.models import load_model
 
 # --- 定数 ---
 # 判別するクラスのリスト
-CATEGORIES = ['bike', 'cars', 'cats', 'dogs', 'flowers', 'horses', 'human']
+CATEGORIES = ["adeno", "largecell", "squamouscell", "normal"] 
 # モデルの入力サイズ（学習時と同じにする）
 TARGET_SIZE = (128, 128)
 # 学習済みモデルの読み込み
-model = load_model('7class_cnn.h5')
+model = load_model('best_model.keras')
 
 # 推論対象フォルダ（valデータセットのルート）
 base_dir = 'dataset_tvr/images/val'
@@ -29,6 +29,7 @@ img_list = []
 
 for category in CATEGORIES:
     folder_path = os.path.join(base_dir, category)
+    print(folder_path)
     # フォルダが存在することを確認
     if os.path.isdir(folder_path):
         files = [os.path.join(folder_path, f) for f in os.listdir(folder_path)
@@ -65,7 +66,7 @@ def show_random_image(event=None):
     x = np.expand_dims(x, axis=0) # バッチ次元を追加 (1, 128, 128, 3)
 
     # 2. 推論の実行
-    # モデルの出力は7つのクラスそれぞれの確率 ([p1, p2, p3, p4, p5, p6, p7])
+    # モデルの出力は4つのクラスそれぞれの確率 ([p1, p2, p3, p4])
     predictions = model.predict(x, verbose=0)[0]
     
     # 最も高い確率のインデックスを取得

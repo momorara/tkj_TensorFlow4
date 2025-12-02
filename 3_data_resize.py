@@ -9,7 +9,7 @@ from PIL import Image
 # --- 定数設定 ---
 src_base = 'dataset_tv'                                      # 元のデータセットディレクトリ
 dst_base = 'dataset_tvr'                                     # 出力先データセットディレクトリ
-CLASSES = ['bike', 'cars', 'cats', 'dogs', 'flowers', 'horses', 'human'] # クラスリスト
+CLASSES = ["adeno", "largecell", "squamouscell", "normal"]  # クラスリスト
 IMG_SIZE = (128, 128)                                        # リサイズ後の画像サイズ (幅, 高さ)
 # 元のデータセット内の画像がある共通パス (例: dataset_tv/images)
 SRC_IMAGE_SUBDIR = 'images' 

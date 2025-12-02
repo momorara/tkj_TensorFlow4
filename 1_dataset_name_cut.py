@@ -1,25 +1,68 @@
 # -*- coding: utf-8 -*-
 """
 dataset_j/
-├── bike
-├── cars
-├── cats
-├── dogs
-├── flowers
-├── horses
-└── human
+├── adeno/
+├── largecell/
+├── squamouscell/
+└── normal
 フォルダの画像データの名前を数字のみにする
 
 
 """
 import os
 import re # 正規表現モジュールを使用
+import shutil
+
+# 元データ
+src_root = "data_j"
+splits = ["train", "valid", "test"]
+
+# 出力先
+dst_root = "dataset_j"
+classes = ["adeno", "largecell", "squamouscell", "normal"]
+
+# 出力先フォルダを作成（なければ）
+for cls in classes:
+    os.makedirs(os.path.join(dst_root, cls), exist_ok=True)
+
+# train / valid / test を順に処理
+for split in splits:
+    for cls in classes:
+        src_dir = os.path.join(src_root, split, cls)
+        dst_dir = os.path.join(dst_root, cls)
+
+        if not os.path.exists(src_dir):
+            print(f"Skipping missing folder: {src_dir}")
+            continue
+
+        # 画像をコピー
+        for filename in os.listdir(src_dir):
+            src_path = os.path.join(src_dir, filename)
+            dst_path = os.path.join(dst_dir, filename)
+
+            # 上書き防止のため、同名ファイルがある場合は名前を変更
+            if os.path.exists(dst_path):
+                name, ext = os.path.splitext(filename)
+                i = 1
+                new_filename = f"{name}_{i}{ext}"
+                new_dst_path = os.path.join(dst_dir, new_filename)
+                while os.path.exists(new_dst_path):
+                    i += 1
+                    new_filename = f"{name}_{i}{ext}"
+                    new_dst_path = os.path.join(dst_dir, new_filename)
+                dst_path = new_dst_path
+
+            shutil.copy2(src_path, dst_path)
+
+        print(f"Copied: {src_dir} → {dst_dir}")
+
+print("📦 完了しました！ data_j2 に統合されました。")
 
 # --- 設定 ---
 ROOT_DIR = "dataset_j" 
 
 # 処理対象とするクラスフォルダ名
-CLASSES = ['bike', 'cars', 'cats', 'dogs', 'flowers', 'horses', 'human']
+CLASSES = ['adeno', 'largecell', 'squamouscell', 'normal']
 
 # 画像として処理する拡張子
 IMAGE_EXTENSIONS = ('.jpg', '.jpeg', '.png', '.bmp')

@@ -6,13 +6,10 @@ dataset_tvフォルダに分ける：
 
 現在のデータセットは
 dataset_j/
-├── bike
-├── cars
-├── cats
-├── dogs
-├── flowers
-├── horses
-└── human
+├── adeno/
+├── largecell/
+├── squamouscell/
+└── normal
 
 これを
 
@@ -34,7 +31,7 @@ TARGET_ROOT = "dataset_tv"  # 新しいYOLO形式のデータセットのルー�
 VAL_RATIO = 0.20            # 検証データに割り当てる割合 (20%に設定)
 
 # 処理対象とするクラスフォルダ名
-CLASSES = ['bike', 'cars', 'cats', 'dogs', 'flowers', 'horses', 'human']
+CLASSES = ["adeno", "largecell", "squamouscell", "normal"]
 
 # --- メイン処理 ---
 

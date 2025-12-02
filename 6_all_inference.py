@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-7カテゴリー分類モデルの検証データに対する性能評価スクリプト。
+4カテゴリー分類モデルの検証データに対する性能評価スクリプト。
 全画像に対して推論を行い、カテゴリーごとの正解数、不正解数、正解率を計算する。
 """
 import numpy as np
@@ -11,11 +11,12 @@ import pandas as pd # 結果を整形するためにPandasを使用
 
 # --- 定数 ---
 # 判別するクラスのリスト
-CATEGORIES = ['bike', 'cars', 'cats', 'dogs', 'flowers', 'horses', 'human']
+CATEGORIES = ['adeno', 'largecell', 'squamouscell', 'normal']
+
 # モデルの入力サイズ（学習時と同じにする）
 TARGET_SIZE = (128, 128)
 # 学習済みモデルのパス
-MODEL_PATH = '7class_cnn.h5'
+MODEL_PATH = 'best_model.keras'
 # 推論対象フォルダ（valデータセットのルート）
 BASE_DIR = 'dataset_tvr/images/val'
 # ---
