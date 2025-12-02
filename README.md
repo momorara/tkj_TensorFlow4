@@ -5,10 +5,9 @@ TensorFlowを使って肺のCT画像から病気判定の物体検出モデル�
 基本はラズパイでの使用を前提に作っていますが、<br>
 Mac,Win,Ubuntuでも少しの変更で使えます。<br>
 ただし、python3.8以上の環境が必要です。<br>
-tkj_TensorFlow2,7に比べデータが難しいので、cnnなど変更しています。
-(変更点)
-・ベストなモデルを残すようにしています。
-・256*256の画像で学習しています。
+tkj_TensorFlow2,7に比べデータが難しいので、cnnなど変更しています。<br>
+(変更点)<br>
+・ベストなモデルを残すようにしています。<br>
 
 <h4><<使い方>></h4>
 git clone https://github.com/momorara/tkj_TensorFlow4 tf4<br>
