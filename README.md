@@ -1,18 +1,18 @@
-# tkj_TensorFlow7
+# tkj_TensorFlow4
 TensorFlow用のリポジトリ
 
-TensorFlowを使って7種のカテゴリーの物体検出モデルを作っていく手順を体験する事で、TensorFlowの使い方を学習するスキームです。<br>
+TensorFlowを使って肺のCT画像から病気判定の物体検出モデルを作っていく手順を体験する事で、TensorFlowの使い方を学習するスキームです。<br>
 基本はラズパイでの使用を前提に作っていますが、<br>
 Mac,Win,Ubuntuでも少しの変更で使えます。<br>
 ただし、python3.8以上の環境が必要です。<br>
 
 <h4><<使い方>></h4>
-git clone https://github.com/momorara/tkj_TensorFlow7 tf7<br>
+git clone https://github.com/momorara/tkj_TensorFlow4 tf4<br>
 として、ラズパイにクローンした上で<br>
 インストール文書に従いインストールを行なってください。<br>
 
 <h4><<動作環境>></h4>
-2025/11/18　対応OS：Trixie版13.2/64bitでの動作を確認しています。<br>
+2025/12　対応OS：Trixie版13.2/64bitでの動作を確認しています。<br>
 
 <h4><<ライセンス>></h4>
 TensorFlowについては、ライブラリ制作者のライセンス規定を参照ください。<br>
